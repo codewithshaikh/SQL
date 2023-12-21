@@ -1,0 +1,2012 @@
+--Quries :
+
+--1. Create Database
+use sumit -- This command is used for Opening Database 
+
+
+create database Studentdata
+
+--2. Use Database
+
+use Asdin_SQLServer730To9
+
+--3. Drop Database
+
+use master
+drop database Asdin_SQL
+
+--4. Create Table
+
+create table Student(rollno int,fname varchar(20),lname varchar(20),age numeric)
+select * from student
+
+--5. View the Table
+
+Select * from student
+--Add Information In Table
+
+insert into student values(10,'Ram','Shah',23)
+
+--6. Create Table with Identity
+
+create table employee(empid int identity(100,1),empname varchar(30),salary numeric(10,2))
+
+--7. View the Table
+drop table employee
+Select * from employee
+
+--8. Insert record
+select * from student
+insert into student values(1,'Asdin','Dhalla',30)
+insert into student values(2,'Jatin','Poojary',21)
+insert into student values(3,'Ankita','Gupta',18)
+insert into student values(4,'Juhi','Palwankar',19)
+insert into student values(5,'Harish','Tiwari',22)
+insert into student values(7,'Raj','Dave')
+
+--OR
+
+insert Student values(7,'Kaushik','Gupta',23)
+
+--9. Insert Record in Specific Column
+
+insert into Student (rollno,lname)values(9,'Shah')
+
+--OR
+
+insert into employee values('zz',2000)
+insert into employee values('Ankita',2000)
+insert into employee values('Anisha',3000)
+insert into employee values('Shruti',4000)
+insert into employee values('Shreya',5000)
+insert into employee values('Shraddha',6000)
+insert into employee values('Karisma',7000)
+insert into employee values('Sharukh',8000)
+insert into employee values('Ajay',9000)
+insert into employee values('Hrithik',10000)
+
+select * from student
+truncate table student
+--10. Update All Records
+
+update student set age=100
+
+--11. Update Specific Record
+
+update student set age=30 where rollno=1
+update student set age=22 where rollno=2
+update student set age=18 where rollno=3
+update student set age=19 where rollno=4
+update student set age=23 where rollno=5
+update student set age=23 where rollno=8
+
+--12. Delete Specific Record
+
+delete from student where rollno=6
+
+--13. Delete All Record
+
+delete from student 
+
+--14. Drop table
+
+drop table Student
+sp_help 'employee'
+select * from employee
+DDL Data Defination Language  Sql Statement
+--15. Alter table Add Column
+
+alter table employee add address varchar(50) 
+update employee set address='Andheri' where empid=100
+--16. Alter table Change Datatype
+
+alter table employee alter column address varchar(100)
+
+--17. Alter table Drop column
+
+alter table employee drop column address  
+select * from employees
+
+--18. Rename Database
+
+sp_renamedb 'StudentData','sqldemo'
+
+--19. Rename Table field
+
+sp_rename 'employee','Employees'
+
+select * from Employees
+
+--20. Rename a Column
+
+sp_rename 'Employeees.salary','Empsalary'
+
+--21. To know all Information about Database
+
+sp_helpdb 'sqldemo'
+
+--22. To know all Information about Table
+
+sp_help 'Employeees'
+
+--23. To know all Information SQL Server
+
+sp_help
+
+----------------------------------------------------END OF DAY 1---------------------------------------------------------------------
+use sqldemo
+select * from information_schema.Tables
+--Assignment to Create 15 Tables (Refer Word File 15 Tables)
+
+--Solution:
+
+create table Airlines_Master(Aircode char(2),Airline_name varchar(15))
+
+--sp_help Airlines_Master
+
+insert into Airlines_Master values('9W','Jet Airways')
+insert into Airlines_Master values('AI','Air India')
+insert into Airlines_Master values('BA','British Airways')
+insert into Airlines_Master values('IA','Indian Airlines')
+
+select * from Airlines_Master
+
+create table Category_Master(Category_code char(2),Description varchar(15))
+insert into Category_Master values('D','Domestic')
+insert into Category_Master values('I','International')
+
+create table Class_Master(Class_code char(3),Class_name varchar(15))
+
+insert into Class_Master values('FC','First Class')
+insert into Class_Master values('E','Economy')
+insert into Class_Master values('Ex','Executive')
+
+create table City_Master(City_code varchar(5),City_name varchar(15),Country varchar(15))
+
+insert into City_Master values('Bang','Bangalore','India')
+insert into City_Master values('Cal','Calcutta','India')
+insert into City_Master values('Che','Chennai','India')
+insert into City_Master values('Del','Delhi','India')
+insert into City_Master values('Lon','London','England')
+insert into City_Master values('Mum','Mumbai','India')
+insert into City_Master values('NY','New York','USA')
+
+create table Day_Master(Day_code int,Day_name varchar(12))
+
+insert into Day_Master values(1,'Sunday')
+insert into Day_Master values(2,'Monday')
+insert into Day_Master values(3,'Tuesday')
+insert into Day_Master values(4,'Wednesday')
+insert into Day_Master values(5,'Thursday')
+insert into Day_Master values(6,'Friday')
+insert into Day_Master values(7,'Saturday')
+
+create table Meal(Meal_code varchar(25),Meal_name varchar(50))
+
+insert into Meal values('CV','Chinese Vegetarian')
+insert into Meal values('CNV','Chinese Non Vegetarian')
+insert into Meal values('CONNV','Continental Non-Vegetarian')
+insert into Meal values('CONV','Continental Vegetarian')
+insert into Meal values('CV','Chinese Vegetarian')
+insert into Meal values('NV','Non Vegetarian')
+insert into Meal values('V','Vegetarian')
+
+select * from Meal
+
+create table Service(Service_code varchar(50),Service_name varchar(50))
+insert into Service values('CC','Child Care')
+insert into Service values('N','Nurse')
+insert into Service values('WC','Wheel Chair')
+
+create table Status_Master(Status_code varchar(50),Description varchar(50))
+
+insert into Status_Master values('C','Cancelled')
+insert into Status_Master values('R','Reserved')
+insert into Status_Master values('T','Travelled')
+insert into Status_Master values('U','Untravelled')
+insert into Status_Master values('W','Waitlist')
+
+create table Airlines_Service(Aircode char(2),Service_code varchar(3))
+
+insert into Airlines_Service values('IA','CC')
+insert into Airlines_Service values('IA','N')
+insert into Airlines_Service values('IA','WC')
+insert into Airlines_Service values('BA','CC')
+insert into Airlines_Service values('BA','N')
+insert into Airlines_Service values('BA','WC')
+insert into Airlines_Service values('9W','CC')
+insert into Airlines_Service values('9W','N')
+insert into Airlines_Service values('9W','WC')
+insert into Airlines_Service values('AI','CC')
+insert into Airlines_Service values('AI','N')
+insert into Airlines_Service values('AI','WC')
+
+create table Airline_Meals(Aircode char(2),Meal_code varchar(5))
+
+insert into Airline_Meals values('9W','V')
+insert into Airline_Meals values('9W','NV')
+insert into Airline_Meals values('AI','V')
+insert into Airline_Meals values('AI','NV')
+insert into Airline_Meals values('AI','CV')
+insert into Airline_Meals values('AI','CNV')
+insert into Airline_Meals values('AI','CONV')
+insert into Airline_Meals values('AI','CONNV')
+insert into Airline_Meals values('BA','CONV')
+insert into Airline_Meals values('BA','CONNV')
+insert into Airline_Meals values('BA','CONV')
+insert into Airline_Meals values('BA','NV')
+insert into Airline_Meals values('BA','CV')
+insert into Airline_Meals values('BA','CNV')
+insert into Airline_Meals values('IA','V')
+insert into Airline_Meals values('IA','NV')
+
+create table Flight(Aircraft_code varchar(50),Aircode char(10),Type varchar(50),Source varchar(50),Destination varchar(50),Category varchar(50),Dep_time varchar(50),
+Journey_hrs int)
+
+insert into Flight values('9W01','9W','Airbus','Cal','Che','D','15.30',3)
+insert into Flight values('9W02','9W','Airbus','Mum','Del','D','9.30',2)
+insert into Flight values('9W03','9W','Airbus','Che','Mum','D','10.45',2)
+insert into Flight values('AI01','AI','Boeing','Cal','NY','I','2.2',18)
+insert into Flight values('AI02','AI','Boeing','Mum','NY','I','1.30',20)
+insert into Flight values('AI03','AI','Boeing','Del','NY','I','3.00',17)
+insert into Flight values('BA01','BA','Boeing','Mum','Lon','I','23.30',9)
+insert into Flight values('BA02','BA','Boeing','Del','Lon','I','2.15',11)
+insert into Flight values('BA03','BA','Boeing','Mum','NY','I','3.00',20)
+insert into Flight values('IC01','IA','Airbus','Bang','Che','D','10.45',1)
+insert into Flight values('IC02','IA','Airbus','Bang','Mum','D','2.00',2)
+insert into Flight values('IC03','IA','Boeing','Del','Cal','D','17.45',1)
+insert into Flight values('IC04','IA','Boeing','Mum','Cal','D','18.30',2)
+
+create table Flight_days(aircraft_code varchar(50),day_code int)
+insert into Flight_days values('9W01',1)
+insert into Flight_days values('9W02',2)
+insert into Flight_days values('9W03',1)
+insert into Flight_days values('AI01',2)
+insert into Flight_days values('AI02',1)
+insert into Flight_days values('AI03',2)
+insert into Flight_days values('BA01',2)
+insert into Flight_days values('BA02',1)
+insert into Flight_days values('BA03',2)
+insert into Flight_days values('IC01',1)
+insert into Flight_days values('IC02',3)
+insert into Flight_days values('IC03',1)
+insert into Flight_days values('IC04',2)
+insert into Flight_days values('9W01',3)
+insert into Flight_days values('9W02',4)
+insert into Flight_days values('9W03',4)
+insert into Flight_days values('AI01',4)
+insert into Flight_days values('AI02',3)
+insert into Flight_days values('AI03',4)
+
+SELECT*FROM Flight_days
+
+create table flight_details(aircraft_code varchar(50),CLASS_CODE char(64),fare numeric,seats numeric)
+insert into flight_details values('IC01','E',3409,300)
+insert into flight_details values('IC01','Ex',5117,150)
+insert into flight_details values('IC02','E',4000,300)
+insert into flight_details values('IC02','Ex',4600,150)
+insert into flight_details values('IC03','E',5048,425)
+insert into flight_details values('IC03','Ex',7574,125)
+insert into flight_details values('IC04','E',5817,425)
+insert into flight_details values('IC04','Ex',5861,125)
+insert into flight_details values('9W01','E',6100,300)
+insert into flight_details values('9W01','Ex',6895,150)
+insert into flight_details values('9W02','E',5900,300)
+insert into flight_details values('9W02','Ex',6850,150)
+insert into flight_details values('9W03','E',4175,300)
+insert into flight_details values('9W03','Ex',5400,150)
+insert into flight_details values('AI01','E',72215,350)
+insert into flight_details values('AI01','EX',77145,175)
+insert into flight_details values('AI01','FC',81215,100)
+insert into flight_details values('AI02','E',60100,350)
+insert into flight_details values('AI02','Ex',70150,175)
+
+create table Passenger(PNR_No numeric(9),Ticket_no numeric(9),Name varchar(50),Age int,Sex char(10),[PP No] varchar(50),[Meal Pref] varchar(50))
+
+insert into Passenger values(1,1,'Allan Smith',45,'Male','117889','CONNV')
+insert into Passenger values(1,2,'Stella Smith',23,'Female','322901','V')
+insert into Passenger values(1,3,'Pam Smith',26,'Female','279011','NV')
+insert into Passenger values(2,4,'Peter Jones',27,'Male','293211','NV')
+insert into Passenger values(2,5,'Lily Jones',30,'Female','347821','V')
+insert into Passenger values(3,6,'James Crawford',44,'Male','123111','NV')
+insert into Passenger values(3,7,'Kitty Crawford',30,'Female','123112','NV')
+insert into Passenger values(4,8,'Alex Lee',22,'Male','40103','V')
+insert into Passenger values(4,9,'Greta Lee',20,'Female','41312','V')
+insert into Passenger values(4,10,'Shania Lee',30,'Female','34784','NV')
+insert into Passenger values(4,11,'Christopher Lee',40,'Male','12453','NV')
+insert into Passenger values(5,12,'Stella Morris',27,'Female','31567','V')
+
+create table Reservation(PNR_no numeric(9),Aircraft_code varchar(8),Journey_date datetime,Class_code char(3),No_of_seats bigint,Address varchar(50),Contact_no numeric(9),Status char(2))
+
+insert into Reservation values(1,'IC01',2001-03-15.,'EX',2,'25,...',3317575,'C')
+insert into Reservation values(2,'BA02',2001-03-21.,'FC',3,'Plus...',6453892,'C')
+insert into Reservation values(3,'IC01',2001-03-15.,'EX',2,'11A,...',3214344,'C')
+insert into Reservation values(4,'BA02',2001-03-21.,'E',4,'Vide...',9430243,'R')
+insert into Reservation values(5,'IC01',2001-03-15.,'FC',1,'Nari...',2122122,'C')
+
+----------------------------------------------------END OF DAY 2---------------------------------------------------------------------
+
+--24. To View All Tables in Database
+
+select * from sys.tables
+
+--25. Rename a Column virtually
+
+select * from student
+
+select rollno as 'Student-roll-No' ,fname from student
+select rollno as 'Roll No',fname as 'First Name',lname as 'Last Name',age as 'Age' from student
+
+--26. Using Of Extracting Data From One table & inserting Into another
+
+select * from student
+drop table student
+select * into student from  backupstudent
+select * into backupstudent from student 
+
+select * from backupstudent
+
+--27. Creating A Table & inserting Records Automatically
+
+select * from backupstudent
+
+delete from backupstudent
+
+insert into backupstudent select * from student
+
+--28. Select 1 Particular Column
+
+select * from backupstudent
+
+select fname as 'FIRST*********** ' from backupstudent
+
+--29. Select columns in any Order
+
+select * from backupstudent
+
+select age, fname,lname,rollno from backupstudent
+
+--30. Select data according to certain criteria
+
+select * from student
+
+select * from student where rollno <=2
+--OR
+
+select * from student where fname='Ankita'
+--OR
+
+select * from student where age=23
+
+--31. Select Multiple Column Data & Show it in 1 Column same datatype
+
+sp_help 'Student'
+
+select fname+' '+lname + ' '+str(age) as 'Emp-Details ' from Student
+
+--OR
+
+select fname+' '+lname+' '+convert(varchar(2),age) as 'Details' from Student
+
+--OR
+
+select fname+' '+lname+' '+str(age) as 'Details' from Student
+
+--32. Doing Calculation & retriving Data in another Column
+
+select * from student
+
+select fname,age,age+1 as 'Next Year Age' from Student
+
+--33. Show Records which are Not Repeated
+
+select * from student
+
+Select distinct age from Student
+
+--34. Arrange Records in Ascending
+
+select * from student
+
+select * from student order by fname
+
+--OR
+
+select * from student order by fname asc
+
+--35. Arrange Records in Descending
+
+select * from student
+
+select * from student order by fname desc
+
+--36. Select Top3 Records from Table
+
+select * from student
+
+select top 3 * from student
+
+--37. Select Bottom 3 From Table
+
+select * from student
+
+select top 3 * from student order by rollno desc
+
+----------------------------------------------------END OF DAY 3--------------------------------------------------------------------- 
+
+--38. Logical Operators(AND,OR,NOT)
+
+select * from Student
+
+select * from Student where fname='Harish' and age=23
+
+select * from Student where fname='Ankita' or age=23
+
+select * from Student where fname!='Harish'
+
+--39. Like Operator(%)
+
+select * from Student where lname like 'G%'
+
+--OR
+
+select * from Student where lname like '%a'
+
+--OR
+
+select * from Student where lname like '%a%'
+
+--OR
+
+select * from Student where fname like 'A[a-p]%'
+
+--40. Relational Operator(<,>,<=,>=,=,!=)
+
+select * from employee
+
+select * from employee where salary <4000
+
+select * from employee where salary >5000
+
+select * from employee where salary <=4000
+
+select * from employee where salary >=6000
+
+select * from employee where salary =3000
+
+select * from employee where salary !=1000
+
+--41. Range Operator (Between / Not Between)
+
+select * from employee where empid between 3 and 9
+
+--OR
+
+select * from employee where empname between 'A' and 'H'
+
+select * from employee where empid not between 4 and 8
+
+--OR
+
+select * from employee where empname not between 'A' and 'H'
+
+--42. List Operator(IN /NOT IN) 
+
+select * from Student
+
+select * from Student where lname in('Poojary','Gupta','Tiwari')
+
+select * from Student where lname not in('Poojary','Gupta','Tiwari')
+
+--43. Aggregate Function(Sum,Avg,Max,Min,Count)
+
+select * from employee
+
+select sum(salary) as 'Cost To Company' from employee
+
+select avg(salary) as 'Cost To Company' from employee
+
+select max(salary) as 'Cost To Company' from employee
+
+select min(salary) as 'Cost To Company' from employee
+
+select count(empid) as 'Cost To Company' from employee
+
+--OR
+
+select count(age) from student
+
+--OR
+
+select count(*) from employee
+
+--44. EXISTS & Not EXISTS
+
+select * from employee
+
+select empid,empname from employee where exists(select empname from employee where empname='Ajay')
+--OR
+
+select empid,empname from employee where exists(select * from employee where empid='12')--No records as empid 12 not available
+
+--OR
+
+select empid,empname from employee where exists(select fname from student where fname='Asdin')
+
+select empid,empname from employee where not exists(select fname from student where fname='Asdin')
+
+--45. Group By
+select * from student
+
+select age from student group by age
+
+--OR
+
+select age from student where age >=20 group by age
+
+--OR
+
+select sum(age),age from student where age=23 group by age
+
+--46. Group By All
+
+select age from student where age >=20 group by all age
+
+--47. Having Clause
+
+select age,fname from student where age >=20 group by age,fname having fname='Jatin'
+
+--OR
+
+select age,fname from student where age >=20 group by all age,fname having fname='Harish'
+
+----------------------------------------------------END OF DAY 4--------------------------------------------------------------------- 
+
+--48. Using OF Various String Functions
+
+select ascii('a')as ascii_value
+
+select char('65')as ascii_value
+
+select upper('sql Server')as ascii_value
+
+select lower('SQl SErver')as ascii_value
+
+select left('Sql Server',3)
+
+select right('Sql Server',3)
+
+select len(' sql Server 2012 ')
+
+select sqrt(3)
+
+select reverse ('sql Server')
+
+select substring('sql Server',4,6)
+
+select substring('sql Server',3,20)
+
+select substring('sql Server',4,0)
+
+select substring('sql Server',4,'*') -- Error as you need to insert a proper Number Value
+
+select substring('sql Server',1,3)+' '+reverse(substring('sql Server',2,3))
+
+--49. Using OF System Functions
+
+select db_name()
+
+select db_id()
+
+select host_id()
+
+select host_name()
+
+select user_id()
+
+select user_name()
+
+--50. Using OF Date Functions
+
+select getdate()
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 103) AS MyDate1
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 104) AS MyDate2
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 105) AS MyDate3
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 106) AS MyDate4
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 107) AS MyDate5
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 108) AS MyDate6  -- time
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 109) AS MyDate7  -- date and time(with seconds)
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 110) AS MyDate8  -- date
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 111) AS MyDate9  -- date
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 112) AS MyDate10 -- date
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 113) AS MyDate11 -- date and time(24 format)
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 114) AS MyDate12 -- time (with milliseconds)
+
+SELECT CONVERT(VARCHAR(30), GETDATE(), 115) AS MyDate13 -- Error not a valid style only 103-114
+
+--51. DateAdd Function
+select dateadd(dd,20,getdate())
+
+select dateadd(mm,20,getdate())
+
+select dateadd(yy,20,getdate())
+
+--52. DateDifference Function
+
+select datediff(mm,'1997/09/8',getdate())
+
+select datediff(dd,'1997/09/8',getdate())
+
+select datediff(yy,'1997/09/8',getdate())
+
+--53. DateName Function
+
+select datename(dw,getdate())
+
+select datename(mm,getdate())
+
+select datename(dd,getdate())
+
+select datename(yy,getdate())
+
+--54. DatePart Function
+
+select datepart(Day ,getdate())
+
+select datepart(month,getdate())
+
+select datepart(year,getdate())
+
+--55. Declaring Variables & using Them Local Variable
+
+declare @var int -- declaration
+select @var=20 -- intialization
+print @var -- print
+
+--OR
+
+declare @var varchar(50)		
+select @var='max'				
+select @var as 'Display Name'	
+
+--OR
+
+declare @var int
+declare @var1 int
+declare @var2 int
+select @var=5
+select @var1=7
+select @var2=@var+@var1
+select @var2
+
+--OR
+
+declare @var varchar(20)
+declare @var1 varchar(20)
+declare @var2 varchar(20)
+select @var='SQL'
+select @var1=' Server'
+select @var2=@var+@var1
+print @var2
+
+--OR
+
+select * from employee
+
+declare @abc int
+select @abc=sum(salary)from employee
+print @abc
+
+--OR
+
+declare @abc int
+select @abc=avg(salary)from employee
+print @abc
+
+--OR
+
+declare @abc int
+select @abc=max(salary)from employee
+--print @abc 
+select @abc as 'Max Employee Salary'
+
+--OR
+
+declare @abc int
+select @abc=min(salary)from employee
+--print @abc 
+select @abc as 'Min Employee Salary'
+
+--OR
+
+declare @abc int
+select @abc=count(empid)from employee
+--print @abc 
+select @abc as 'Count Employees '
+
+--56. Using Begin.....End / If.....Else
+
+if exists(select * from employee where empid=100)
+begin
+print'Yes Employee with this ID is Present....'
+end
+else 
+print'No Employee with thi ID  Are Not Found.....'
+
+--OR
+
+declare @abc varchar(20)
+select @abc ='Asdin'
+if exists(select * from employee where empname=@abc)
+begin
+print'Yes Employee with this Name is Present....'
+select * from employee where empname=@abc
+end 
+else 
+print'No Employee with this Name Are Not Found.....'
+
+--OR
+
+if exists(select * from employee where salary=20000)
+begin
+print'Yes Employee with this Age is Present....'
+end 
+else 
+print'No Employee with this Age Are Not Found.....'
+
+--57. Using Of XML Datatype
+
+Create table cricket(cid int,Cinfo XML)
+select * from cricket
+
+insert into cricket values(1,'<info><name>abc</name><age>22</age></info>')
+insert into cricket values(2,'<info><name>def</name><age>22</age></info>')
+insert into cricket values(3,'<info><name>pqr</name><age>26</age><name>xyz</name><age>27</age></info>')
+
+--58. CUBE Operator
+
+create table sales(name varchar(30),countrycode varchar(30),sales int)
+select * from sales
+
+insert into sales values('abc',001,1000)
+insert into sales values('def',002,2000)
+insert into sales values('abc',001,2300)
+insert into sales values('def',003,3400)
+insert into sales values('abc',002,1234)
+
+Select name, countrycode, sum (sales) as totalsales from sales
+Group by name, countrycode with CUBE
+
+--59. Roll Up Operator
+
+Select name,countrycode, sum (sales) from sales 
+group by Name,countrycode with Rollup
+
+--60. Using Of Pivot 
+
+create table abc123(username varchar(25),product varchar(25),qty int)
+
+select * from abc123
+
+insert into abc123 values('sam','mouse',50)
+insert into abc123 values('ram','keyboard',45)
+insert into abc123 values('sam','mouse',45)
+insert into abc123 values('ram','mouse',15)
+insert into abc123 values('sam','mouse',25)
+insert into abc123 values('ram','keyboard',56)
+insert into abc123 values('ram','keyboard',53)
+insert into abc123 values('sam','keyboard',51)
+insert into abc123 values('ram','mouse',25)
+insert into abc123 values('sam','mouse',15)
+
+select * from abc123
+pivot (sum(qty) for product in([mouse],[keyboard]))pvt
+
+--61. Using of  UnPivot
+
+create table xyz123(username varchar(30),mouse int,keyboard int)
+select * from xyz123
+
+insert into xyz123 values('ram',40,150)
+insert into xyz123 values('sam',140,50)
+
+select * from xyz123
+unpivot (qty for product in([mouse],[keyboard]))unpvt
+
+----------------------------------------------------END OF DAY 5--------------------------------------------------------------------- 
+
+--Constraints: To restrict the User to enter any kind of Junk data in the Entity.
+--62. Primary Key:Null Values Not allowed,duplicate values not allowed
+
+select * from sys.tables
+
+create table emp1(id int constraint pkid primary key,name varchar(20),salary int, deptid int)
+
+--OR
+
+create table emp2(id int primary key,name varchar(20),salary int, deptid int)
+
+insert into emp1 values(1,'abc',2000,10)
+insert into emp2 values(1,'abc',2000,10)
+insert into emp1 values(1,'abc',2000,10)--Error because of Duplicate Values
+insert into emp1 (name,salary,deptid)values('abc',2000,10)--Error because of NUll values
+
+--63. Alter primary key Constraint
+
+sp_help emp2
+
+alter table emp2 drop constraint PK__emp2__3213E83FDD4C0709
+
+insert into emp2 values(1,'abc',2000,10)
+insert into emp2 (name,salary,deptid)values('abc',2000,10)
+
+--64. Unique Key:Duplicate values are not allowed,nul value allowed once
+create table emp3(id int primary key,name varchar(20)constraint unname unique,salary int, deptid int)
+
+insert into emp3 values(1,'abc',123,20)
+insert into emp3 values(2,'abc',123,20)--Error because duplicate value in name
+insert into emp3 (id,salary,deptid)values(3,123,20)
+insert into emp3 (id,salary,deptid)values(4,123,20)--Error because Null value is duplicated
+
+--65. Check Constarint:Checks for the value in given creteria
+
+create table emp4(id int primary key,name varchar(20)constraint uniname unique,salary int constraint chksal check
+(salary between 10000 and 20000), deptid int)
+
+insert into emp4 values(1,'abc',10000,20)
+insert into emp4 values(2,'abcd',30000,20)--Error because the salary is not in given range
+
+--OR
+
+create table emp7(id int primary key,name varchar(20),qualification varchar(20) constraint cqual check
+(qualification in('Secondary School','Higher Secondary','Graduation','Postgraduation')))
+
+insert into emp7 values(1,'abc','Graduation')
+insert into emp7 values(2,'abc','Diploma')--Error because qualification not in list
+
+--66. Default Constraint: Used to give default values to attribute
+create table emp5(id int primary key,name varchar(20)constraint uniqname unique,salary int constraint chksala check
+(salary between 10000 and 20000), deptid int constraint defcity default 100)
+
+insert into emp5 values(1,'abc',10000,20)
+insert into emp5 (id,name,salary)values(2,'abcd',10001)
+select * from emp5
+
+--67. Not Null: Null values not allowed
+
+create table emp6(id int not null,name varchar(20)constraint uniquname unique,salary int constraint chksalar check
+(salary between 10000 and 20000), deptid int constraint defacity default 100)
+
+insert into emp6 values (1,'abcd',10000,10)
+insert into emp6 (name,salary,deptid)values ('abcd',10000,10)--Error because Null values not allowed in ID
+
+--68.  Foreign Key
+
+create table dept(deptid int primary key,deptname varchar(20))
+
+insert into dept values(10,'Purchase')
+insert into dept values(20,'Sales')
+insert into dept values(30,'IT')
+
+select * from dept
+
+create table emp8(id int,name varchar(20),deptid int foreign key references dept(deptid))
+
+insert into emp8 values(1,'abc',10)
+insert into emp8 values(2,'abd',20)
+insert into emp8 values(3,'abe',30)
+
+select * from emp8
+
+insert into emp8 values(4,'abf',40)--Error because of Foreign Key
+
+update dept set deptid=100 where deptid=10--Error
+
+delete from emp8
+delete from dept
+
+drop table emp8
+drop table dept
+
+--69. Foreign Key with Cacade Update & delete
+
+create table dept1(deptid int primary key,deptname varchar(20))
+
+insert into dept1 values(10,'Purchase')
+insert into dept1 values(20,'Sales')
+insert into dept1 values(30,'IT')
+
+select * from dept1
+
+create table emp9(id int,name varchar(20),deptid int foreign key references dept1(deptid) on update cascade on delete set NULL)
+
+insert into emp9 values(1,'abc',10)
+insert into emp9 values(2,'abd',20)
+insert into emp9 values(3,'abe',30)
+
+select * from emp9
+
+insert into emp9 values(4,'abf',40)--Error because of Foreign Key
+
+update Dept1 set deptid=100 where deptid=10
+
+select * from emp9
+select * from Dept1
+
+delete from Dept1 where deptid=100
+delete from emp9
+
+select * from emp9
+select * from Dept1
+
+drop table emp9
+drop table Dept1
+
+----------------------------------------------------END OF DAY 6--------------------------------------------------------------------- 
+
+--Joins(Are Used To Join The 2 Table & Extract The Data From Both The Table)
+ 
+create table emp11(empid int,empname varchar(50),deptid int)
+
+select * from emp11
+
+insert into emp11 values(1,'asdin',1)
+insert into emp11 values(2,'malcolm',2)
+insert into emp11 values(3,'chirag',3)
+insert into emp11 values(4,'santosh',4)
+insert into emp11 values(5,'sanoj',5)
+insert into emp11 values(50,'satish',50)
+insert into emp11 values(55,'sachin',55)
+
+create table dept11(deptid int,deptname varchar(50))
+
+select * from dept11
+
+insert into dept11 values(1,'purchase')
+insert into dept11 values(2,'sales')
+insert into dept11 values(3,'accounts')
+insert into dept11 values(4,'IT')
+insert into dept11 values(5,'HR')
+insert into dept11 values(6,'Marketing')
+insert into dept11 values(7,'Academics')
+
+select * from emp11
+select * from dept11
+
+--70. Inner Join Retrives common records between the 2 Tables
+
+select d.deptid from dept11 d join emp11 e
+on d.deptid=e.deptid
+
+--OR--
+
+select d.* from dept11 d join emp11 e
+on d.deptid=e.deptid
+
+--OR--
+
+select e.empid,e.empname,d.deptid from emp11 e join dept11 d
+on d.deptid=e.deptid
+
+--71. Left Outer Join Retrives all records from 1st Table & common records from 2nd Table
+
+select e.empid,e.empname,d.deptid from emp11 e left outer join dept11 d
+on d.deptid=e.deptid
+
+--OR
+
+select e.*,d.* from emp11 e left outer join dept11 d
+on d.deptid=e.deptid
+
+--72. Right Outer Join Retrives common records from 1st Table & All records from 2nd Table
+
+select e.empid,e.empname,d.deptid from emp11 e right outer join dept11 d
+on d.deptid=e.deptid
+
+--OR
+
+select e.*,d.* from emp11 e right outer join dept11 d
+on d.deptid=e.deptid
+
+
+--73. Full Outer Join Retrives records using Left+Right Outer Join
+
+select e.empid,e.empname,d.deptid from emp11 e full outer join dept11 d
+on d.deptid=e.deptid
+
+--OR
+
+select e.*,d.* from emp11 e full outer join dept11 d
+on d.deptid=e.deptid
+
+--74. Cross Join(Cartesian of Product)It multiples records of 1st Table * 2nd Table   
+
+select * from emp11 e cross join dept11 d
+
+--OR
+
+select * from emp11 , dept11
+
+--75. Self Join Join is done on one Table between 2 Columns
+
+create table emp12(empid int,empname varchar(50),mgr int)
+
+insert into emp12 values(1,'John',Null)
+insert into emp12 values(2,'Tom',1)
+insert into emp12 values(3,'Smith',1)
+insert into emp12 values(4,'Albert',2)
+insert into emp12 values(5,'David',2)
+insert into emp12 values(6,'Murphy',5)
+insert into emp12 values(7,'Petra',5)
+
+select * from emp12
+
+select e2.empname as 'Employee',e1.empname as 'Manager' from emp12 e1 join emp12 e2
+on e1.empid=e2.mgr
+
+----------------------------------------------------END OF DAY 7---------------------------------------------------------------------
+
+--View:  A View is a virtual table in the database whose contents are defined by a query. 
+--To the database user, the view appears just like a real table, with a set of named columns  and rows of data. 
+--But unlike a real table, a view does not exist in the database as a stored set of data values. 
+--Instead, the rows and columns of data visible through results produced by the query that defines the view. 
+--It is a query which is not stored in the database. It is a object that derives data from one or more table. 
+--The information that is retrieved from the table is called as base table. 
+--The definition of the view will help you to know how the view is been created. 
+--We can encrypt the definition of the view so that no one can see how the view is been created.
+--but once the view is been encrypted you cannot decrypt the view. 
+--You can rename the view but it is recommended that you should not rename but drop the view to recreate it. 
+
+--Advantages of views: 
+
+--Security:Each user can be given permission to access the database only through a small set of views that contain the 
+--specific data the user is authorized to see, thus restricting the user’s access to stored data.
+
+--Query Simplicity: A view can draw data from several different tables and present it as a single table, 
+--turning multi table queries into single-table queries against the view.
+
+--Structural Simplicity: Views can give user a personalized view of the database structure, presenting the database as a set of
+--virtual tables that make sense for that user.
+
+--Insulation from change: A View can present a consistent, unchanged image of the structure of the database, 
+--even if the underlying source tables are split, restructured or  named.
+
+--Data Integrity: If data is accessed and entered through a view, the DBMS can automatically check the data to ensure that it 
+--meets specified integrity constraints.
+
+--Rules
+
+--You cannot modify data in a view if the modification affects more than one base   table.
+--You can modify data in a view if the modification affects only one base table at a time.
+
+select * from emp11
+select * from dept11
+
+--76. Creating View (Simple)
+
+create view empdetails
+as
+select empid,empname,deptid
+from emp11
+
+--77. To see The Recods From The View 
+
+select * from empdetails
+
+--78. To View Only The Specific Information  From The View
+
+select * from empdetails where empid=50
+
+--79. To Create a View (Simple With Join)
+
+create view empdetails11
+as select empid,empname,d.deptid from emp11 e join dept11 d 
+on d.deptid=e.deptid
+
+select * from empdetails11
+
+--80. To View Only The Specific Information  From The View
+
+select * from empdetails11 where empid=2
+
+--81. To Alter The View
+
+Alter view empdetails11
+as 
+select empid,empname,d.deptid
+from emp11 e join dept11 d on d.deptid=e.deptid where empname='malcolm'
+
+select * from empdetails11
+
+--82. To View The Definations Of The View
+
+exec sp_helptext 'empdetails11'
+
+--OR--
+
+sp_helptext 'empdetails11'
+
+--OR--
+
+execute sp_helptext 'empdetails11'
+
+--83. To See The Dependencies OF The View
+sp_depends empdetails
+
+--84. To Rename a View
+sp_rename 'empdetails11','emp_details123' 
+
+--85. To Drop The View
+
+drop view emp_details123
+
+--86. To Create A View With Encryption So That No One Can See The Definations OF It.
+
+create view empdetails21
+with encryption
+as
+select deptid,deptname from dept11
+
+--87. The Below Query Will Show The result
+
+select * from empdetails21
+
+--88. The Below Query Will Give The Error Message That The Text for object empdetails2 is encrypted
+
+sp_helptext empdetails21
+
+--89. Inserting Record In the View
+
+insert into empdetails values(60,'Hello',1)
+
+select * from empdetails
+select * from emp11
+
+--90. Update The Record Sucessfully
+
+update empdetails set deptid=10 where deptid=1
+
+select * from empdetails
+select * from emp11
+
+--91. Deleting Records From The View
+
+delete from empdetails where deptid=10
+
+select * from empdetails
+select * from emp11
+
+--92. Creating View With Schema Binding Option
+
+Create table customer(Custid int,Custname varchar (50))
+
+select * from customer
+
+drop table customer
+
+Create view vcustomer 
+As 
+Select * from customer
+
+select * from vcustomer
+
+alter table customer add age int
+alter table customer drop column age
+
+select * from vcustomer
+
+sp_refreshview vcustomer
+
+----------------------------------------------------END OF DAY 8---------------------------------------------------------------------
+
+--Stored Procedures:A Store procedure is a collection of batch of T-Sql statements and all that are stored under a 
+--single name & executed under a single unit.
+--It is the pre compiled statement stored in the database.
+--Many Statements are compiled and available only for execution.
+--As no time is spent in sending the query back to the server for passing & executing & compiling it again & again.
+--It Speeds up the execution & helps in faster retrieval of data.
+--It helps in performance of the query.
+--It is similar to a view but view is not stored in the database & only the definition of the view is stored in the 
+--database.
+
+--Stored Procedure:
+--System: is in-built given by the system & prefixed with the letters 'SP'
+--User-Defined:  is created by the user according to his convenience.
+
+--93. Creating OF Stored Procedure
+
+create procedure p_emp111
+as
+select * from emp11
+
+--OR
+
+create procedure p_emp131
+as
+select empid,empname from emp11
+
+--94. To Execute The Stored Procedure (3 Ways)
+
+execute p_emp111
+--OR
+exec p_emp111
+--OR
+p_emp131
+
+--95. To Alter The Stored Procedure
+
+alter procedure p_emp111
+as
+select empid,empname from emp11 where deptid=50
+
+exec p_emp111
+
+--96. To Drop The Stored Procedure
+
+drop procedure p_emp111
+
+--97. To View The Defination OF The Stored Procedure
+
+sp_helptext p_emp131
+
+--98. Information About the procedure created
+
+sp_help p_emp131
+
+--99. To View The Dependencies OF The Stored Procedure
+
+sp_depends p_emp131
+
+--100. Creating OF Stored Procedure With Encryption
+
+create procedure p_emp112
+with encryption
+as 
+select * from emp11 
+
+sp_helptext p_emp112
+
+--101. Showing Information About All The Stored Procedure
+
+execute sys.sp_who
+
+--102. Creating Stored Procedure With Single Parameter
+
+create procedure pcity_master @city varchar(20)
+as 
+select * from city_master where city_name=@city
+
+execute pcity_master 'London'
+pcity_master 'Delhi'
+
+--103. Creating Stored Procedure With Multiple Parameter
+
+create procedure pcity_master1 @city varchar(20),@coun varchar(25)
+as
+select * from city_master where city_name=@city or country=@coun
+
+execute pcity_master1 'Mumbai','UAE'
+
+drop procedure pcity_master1
+
+--OR
+
+create procedure pcity_master2 @city varchar(20),@coun varchar(25)
+as
+select * from city_master where city_name=@city and country=@coun
+
+execute pcity_master2 'London','England'
+
+--OR
+
+Create procedure pcity_master410
+As
+if (select count(*)from city_master where city_name = 'London ') > 0
+Begin
+Print 'Records Found'
+return
+end
+ELSE
+Print 'Records not found'
+return
+
+execute pcity_master410
+
+--104. Inserting Record Through Stored Procedure
+
+Create procedure pcity_master6 @code varchar(20),@name varchar(20),@country varchar(20)
+As
+Begin
+Insert into city_master values (@code, @name,@country)
+End
+
+Execute pcity_master6 'Cal1','KOLKATTA','India'
+
+select * from city_master
+
+--105. Updating Record Through Stored Procedure
+
+Create procedure pcity_master8 @code varchar(20),@name varchar(20),@country varchar(20)
+As
+Begin
+update city_master set City_name=@name,country=@country where city_code=@code 
+End
+
+Execute pcity_master8 'Cal1','Calcuta','Indian'
+
+select * from city_master
+
+--106. Deleting Record Through Stored Procedure
+
+Create procedure pcity_master10 @coun varchar(20)
+As
+Begin
+delete from city_master where country=@coun
+End
+
+Execute pcity_master10 'Indian'
+
+select * from city_master
+
+--107. Using OF TRY & CATCH Construct
+
+create procedure error_procedure
+as
+begin
+declare @result int
+select 'This Statement Has Been Executed'
+select @result='Max'
+select 'This Statement Cannot Be Executed'
+end
+
+begin try
+execute error_procedure
+end try
+begin catch
+select error_message() as ErrorMessage
+end catch
+
+----------------------------------------------------------------------End of Day 9----------------------------------------------
+
+--Triggers
+--A trigger is executed when an attempt is made to modify the data in a table that is protected by the trigger.
+--Unlike the system stored procedure triggers cannot be executed directly nor do they pass or receive Parameters.
+ -- Triggers are defined on specific table & these tables are defined as Trigger Tables.
+--If a trigger is defined on Insert, Update or Delete statement action on a table it fires automatically when 
+--these actions are attempted. The automatic execution of the trigger cannot be stopped.
+--In SQL Trigger Is Created With CREATE Statement Triggers Can Be Classified Into 3 Basic Types:-
+--DML--Insert, Update, Delete
+--DDL--On Restricting The Table Creation
+--Logon--This Is an In Build Trigger which fires automatically when the sql starts a login screen appears where
+-- this trigger authenticates whether the user is valid user or not & then gives the permission according to it.
+
+--In SQL Statements DML Statements Have 2 special types of tables:-
+--INSERTED
+--DELETED 
+--To modify the data in the database.When the data is Inserted,Updated,and Deleted,SQL manages these tables
+-- automatically.The Table Stores the original & modified Data & according To the transaction it fires it statements.
+
+--Inserted:-- The inserted table contains copies of records that are modified with insert or update operation on
+-- the trigger tables. Trigger table is the table on which trigger is defined. 
+--The Insert & Update Operation inserts new records into the inserted & trigger tables.
+
+--Deleted:-- The Deleted table contains copies of records that are modified with delete operation on the trigger
+-- table. Trigger table is the table on which trigger is defined.
+ --These operations delete the records from the trigger table & insert them in Deleted Table.
+
+
+create table trigger_table1
+(id int,name varchar(30),dateofbirth datetime, salary int)
+
+select * from trigger_table1
+--drop table trigger_table1
+
+insert into trigger_table1 values(1,'Asdin','8/19/1984',10000)
+insert into trigger_table1 values(2,'Malcolm','11/16/1984',20000)
+insert into trigger_table1 values(3,'Chirag','1/1/2000',30000)
+
+--108. Creating Triggers On Insert Statement(DML)
+create trigger trigger1
+on
+trigger_table1
+for insert
+as
+if (select salary from inserted)>50000
+begin
+print'You Cannot Insert Salary Above 50000'
+rollback transaction
+end
+
+insert into trigger_table1 values(4,'Sanoj','5/5/1985',50000)
+insert into trigger_table1 values(5,'Santosh','4/4/1983',50001)
+
+create view trigger1_view
+as
+select * from trigger_table1
+
+--109. To View The Defination Of The Trigger
+
+sp_helptext trigger1
+
+--110. show the information about the trigger created
+
+sp_help trigger_table1
+
+sp_help trigger1_view
+
+sp_help trigger1
+
+--111. To Drop The Trigger
+
+drop trigger trigger1
+
+--112. To Alter a Trigger
+
+alter trigger trigger1
+on
+trigger_table1
+with encryption
+for insert
+as
+if (select salary from inserted)>50000
+begin
+print'You Cannot Insert Salary Above 50000'
+rollback transaction
+end
+
+sp_helptext trigger1
+
+--113. Creating Trigger For Updating Records (DML)
+
+create trigger trigger2
+on trigger_table1
+for update
+as
+if(select dateofbirth from inserted)>getdate()
+begin
+print'Date OF Birth Cannot Be More Than ToDay s Date'
+rollback transaction
+end
+
+update trigger_table1 set dateofbirth='7/4/2016'where id=4
+update trigger_table1 set dateofbirth='7/5/2016'where id=4
+
+select * from trigger_table1
+
+--114. Creating Trigger For Deleting Particular Records (DML)
+
+create trigger trigger3
+on trigger_table1
+for delete
+as
+if 'asdin'in(select name from deleted)
+begin
+print 'You Cannot Delete The User Asdin'
+rollback transaction
+end 
+
+delete from trigger_table1 where name='Sanoj'
+delete from trigger_table1 where name='Asdin'
+
+--115. Creating a Trigger Where No Records can Be Deleted From The Table
+
+create table table1
+(id int,name varchar(30),dateofbirth datetime, salary int)
+
+select * from table1
+--drop table trigger_table1
+
+insert into table1 values(1,'Asdin','8/19/1984',10000)
+insert into table1 values(2,'Malcolm','11/16/1984',20000)
+insert into table1 values(3,'Chirag','1/1/2000',30000)
+
+create trigger trigger_table11
+on table1
+for delete
+as
+begin
+print 'You can not delete the records....'
+end
+rollback transaction
+
+drop trigger trigger_table11
+
+select * from table1
+select * from table2
+
+delete from table1 where name='asdin'
+delete from table1
+
+--116. Creating a Trigger where records Deleted are transfered to other table.
+
+create table table2
+(id int,name varchar(30),dateofbirth datetime, salary int)
+
+create trigger trigger_table2
+on table1
+for delete
+as
+begin
+print 'Records are deleted Succesfully and Transfered to other Table...'
+insert into table2
+select * from deleted
+end
+
+drop trigger trigger_table11
+
+select * from table1
+select * from table2
+
+delete from table1 where name='asdin'
+delete from table1
+
+--117. Creating AFTER Trigger
+
+create trigger trigger4
+on trigger_table1
+after delete
+as
+begin
+declare @num int
+select @num=count(*)from deleted
+print 'No of Employees Deleted = '+convert(varchar(15),@num)
+end
+
+select * from trigger_table1
+
+delete from trigger_table1 where id=2
+
+create trigger trigger5
+on trigger_table1
+after insert
+as
+begin
+declare @var varchar(20)
+select @var=count(*) from inserted
+print'No. OF Employees Inserted=' +convert(varchar(20),@var)
+end
+
+insert into trigger_table1 values(4,'sanoj','1/1/2007',45000)
+insert into trigger_table1 values(4,'sanoj','1/1/2007',35000)
+
+create trigger trigger7
+on trigger_table1
+after update
+as
+begin
+declare @var varchar(20)
+select @var=count(*) from inserted
+print'No. OF Records Update=' +convert(varchar(20),@var)
+end
+
+update trigger_table1 set id=10 where id=3
+
+create trigger trigger6
+on trigger_table1
+after delete
+as
+begin
+declare @var varchar(20)
+select @var=count(*) from deleted
+print'No. OF Employees Deleted=' +convert(varchar(20),@var)
+end
+
+delete from trigger_table1 where id=4
+
+--118. Creating Triggers For Permission on Tables To Be Created (DDL)
+
+create trigger trigger8
+on database
+for create_table
+as
+begin
+print'You Do Not Have The Permission To Create a Tables'
+rollback transaction
+end
+
+create table abcd(id int,name varchar(20))
+
+--119. Creating Triggers For Permission on Views To Be Created (DDL)
+
+create trigger trigger9
+on database
+for create_view
+as
+begin
+print'You Do Not Have The Permission To Create Views'
+rollback transaction
+end
+
+create view vabc
+as 
+select * from trigger_table1
+
+--120. Creating Triggers For Permission on Stored Procedure To Be Created (DDL)
+
+create trigger trigger10
+on database
+for create_procedure
+as
+begin
+print'You Do Not Have The Permission To Create Stored Procedure'
+rollback transaction
+end
+
+create proc pabc
+as
+select * from trigger_table1
+
+--121. Creating Triggers For Permission on Tables To Be Altered (DDL)
+
+create trigger trigger11
+on database
+for alter_table
+as
+begin
+print'You Do Not Have The Permission To Alter a Table'
+rollback transaction
+end
+
+alter table trigger_table1
+add job varchar(20)
+
+--122. Creating Triggers For Permission on Views To Be Altered (DDL)
+
+create trigger trigger12
+on database
+for alter_view
+as
+begin
+print'You Do Not Have The Permission To Alter a View'
+rollback transaction
+end
+
+create view vtrigger_table1
+as
+select * from trigger_table1
+
+--123. Creating Triggers For Permission on Stored Procedurs To Be Altered (DDL)
+
+create trigger trigger13
+on database
+for alter_procedure
+as
+begin
+print'You Do Not Have The Permission To Alter a Procedure'
+rollback transaction
+end
+
+create proc ptrigger_table1
+as
+select * from trigger_table1
+
+alter proc calc_square
+with encryption
+as select * from trigger_table1
+
+--124. Creating Triggers For Permission on Tables To Be Deleted (DDL)
+
+create trigger trigger14
+on database
+for drop_table
+as
+begin
+print'You Do Not Have The Permission To Drop a Table'
+rollback transaction
+end
+
+drop table trigger_table1
+
+--125. Creating Triggers For Permission on Views To Be Deleted (DDL)
+
+create trigger trigger15
+on database
+for drop_view
+as
+begin
+print'You Do Not Have The Permission To Drop a View'
+rollback transaction
+end
+
+drop view empdetails1
+
+--126. Creating Triggers For Permission on Stored Procedures To Be Deleted (DDL)
+
+create trigger trigger16
+on database
+for drop_procedure
+as
+begin
+print'You Do Not Have The Permission To Drop a Stored Procedure'
+rollback transaction
+end
+
+drop proc ptrigger_table1
+
+--127. To Drop a Trigger we use Below Query But Now it will Not Work as Trigger is applied on Database.
+--We can use The Graphical form to Drop a Trigger
+drop trigger trigger1
+
+
+--128. How To Get Back The Deleted Data
+create table max_emp (id int,name varchar(20)) 
+insert into max_emp values(1,'Asdin')
+insert into max_emp values(2,'Aptech')
+select * from max_emp
+drop table max_emp
+/*step 1.*/
+set implicit_transactions off
+--always use begin transaction before deleting the record or records 
+begin transaction 
+/*step 2.*/ 
+delete from max_emp 
+delete from max_emp where id=2 
+/*step 3.*/ 
+select * from max_emp 
+/*step 4.*/ 
+begin transaction 
+/*step 5.*/ 
+rollback transaction 
+/*step 6.*/ 
+select * from max_emp 
+begin transaction 
+commit transaction 
+
+----------------------------------------------------------------------End of Day 10----------------------------------------------
+
+
+--Indexes :
+--As a book contains pages, which contain paragraphs, which in turn contain sentences.
+--The same way SQL Server stores data in storage units called DATA PAGES
+--A data page is the smallest unit of data storage. An allocation unit is a collection of data types grouped
+--together based on the page type.
+--This grouping is done for efficient management of data, these pages store data in form of rows.
+--In SQL Server, the size of each page is 8 kb. 
+--Thus sql server databases have 128 data pages per Mb of storage place.
+--A page begins with a 96-byte header, which stores system about the page. This information includes:
+--•	Page number
+--•	Page type
+--•	Amount of free space on the page
+--•	Allocation unit id of the object to which the page is allocated
+
+--Data Files All input & output functions in the database are performed at the page level.
+--This means that the database engine reads or writes data pages. 
+--A set of 8 adjacent data pages is known as an EXTENT.
+--SQL stores data pages in files known as data files.
+--The space allocated to a data file is divided into sequentially numbered data pages.
+--The numbering starts from 0
+
+--There are 3 types of data files in SQL Server:
+
+--1.	Primary Data files:
+--This file is automatically created at the time of database creation.
+--This file has references to all the files in the database.
+--The extension of the file is .mdf 
+
+--2.	Secondary Data files:
+--This is an optional file in the database .
+--It  can be created to separate database objects like tables, views, procedures, etc.
+--The extension of the file is .ndf 
+
+--3.	Log files:
+--This file contains information about modification done in the database.
+--This is useful for data recovery in case of power failure or sudden shift of database to different server.
+--There is atleast 1 log file for each database.
+--The extension of the file is .ldf
+
+--Need for Indexes
+--As in a normal book we have an index to search the topic, so that we can reach or open the desired topic without
+--wasting our time and read the whole book.
+--In the same way SQL provides Indexes for faster retrieval of data from the database.
+--Like a book SQL indexes allow to find the specific data without scanning through the entire table.
+--Indexes In a table records are stored as we enter it, the information is stored in unsorted way.
+--So at the time of data retrieval it is a problem,as it becomes slow because the whole table is scanned every
+--time for each query .
+--When an index is created on a table, it orders the records to assist in faster retrieval of data while searching.
+--Multiple indexes can be created on a single table .
+--Indexes point to the location of a row of a data page instead of searching through the table.
+--Indexes increase the speed of queries that join tables or perform sorting operations.
+--Indexes implement the uniqueness of rows if defined when you create an index.
+--Indexes are created & maintained in an ascending or descending order.
+--Indexes are useful to retrieve data at a faster rate, but they consume disk space and require maintenance.
+--There are certain conditions where indexes are not essential.
+--Indexes should not be created if they are not used frequently since, maintaining them requires time and resources.
+--Indexes should not be created on columns having duplicate data.
+
+--Types of Indexses:
+--Clustered Indexes
+--A clustered index causes records to be physically stored  in a sorted or a sequential order.
+--Thus a clustered index determines the actual order in which the data is stored in the database.
+--Hence only one clustered index can be created in a table.
+--Uniqueness of the value in a clustered index is maintained explicitly using UNIQUE keyword or implicitly
+--using an internal unique identifier.
+--Before you create a clustered index, you to make sure the free space in your system are at least 1.2 times
+--the amount of data in the table.
+--A clustered index is created on a table using a column with no duplicate values.
+--This index recognizes the records in sequential order of the values in the index column.
+--Clustered index are used to locate a single row or range of rows.
+--Starting from the first page of the index, the search is checked against each value on the page.
+--When the matching key value is found, the database engine moves to the page indicated by that value.
+--The desired row or range of rows is then accessed.
+--Clustered index are useful for columns that are searched frequently for key values are accessed in a sorted order.
+--The leaf nodes of the clustered index contain the data pages.Used for queries that return large return sets.
+--Only one clustered index can be created on a table.
+--The data is stored in a sorted manner on the clustered key.
+
+--Non Clustered index
+--A non clustered index is defined on a table that has data either in a clustered or heap.
+--Non clustered index will the default type if an index is not defined on a table. 
+--Each index row in the non clustered index contains a non clustered key value and a row locator.
+--This row locator points to the data row corresponding to the key value in the table. 
+--Non clustered indexes have a similar B-tree structure as clustered indexes but with following differences:
+--The data rows of a table are not physically stored in the order defined by their non clustered keys.
+--In a non clustered index structure, the leaf level contains index rows.
+--The leaf nodes of a non-clustered contain index pages.
+--Used for queries that do not return large result sets.
+--Multiple non clustered indexes can be created on a table. 
+--Maximum you can create 249 non clustered indexes on a table.
+--The data is not stored in a sorted manner on a non-clustered key.
+
+----------------------------------------------------------------------End of Day 11----------------------------------------------
+
+--129. Creating Clustured Index
+
+create table clustured_index
+(custId int,First_name varchar(20),last_name varchar(20),state varchar(20))
+
+select * from clustured_index
+--drop table clustured_index
+
+insert into clustured_index values(1,'Aptech','Limited','Maharashtra')
+insert into clustured_index values(2,'Asdin','Dhalla','Maharashtra')
+insert into clustured_index values(3,'Malcolm','Daruwalla','Mumbai')
+insert into clustured_index values(4,'Chirag','Panchal','Gujrat')
+
+create clustered index IX_custid on clustured_index(custid)
+
+sp_help clustured_index
+
+--130. Creating NON Clustured Index
+
+create nonclustered index IX_state on clustured_index(state)
+
+--131. Creating Unique Index(It can be created Only On Unique Columns Both Clustered & Non Clustered Index )
+
+create table customer_details(custid int,firstname varchar(20))
+select * from customer_details
+--drop table customer_details
+
+insert into customer_details values(1,'Asdin')
+insert into customer_details values(2,'Malcolm')
+insert into customer_details values(3,'Chirag')
+insert into customer_details values(4,'Asdin')
+insert into customer_details values(5,'Malcolm')
+
+create unique index IX_custid123 on customer_details(custid)
+
+sp_help customer_details
+
+--132. The Below Query Will Throw give you an Error as Duplicate Values are found In FirstName Column
+create unique index IX_firstname on customer_details(firstname)
+
+--133. Creating Composite Indexes(An Index That is defined on more than 1 column is reffered as Composite Index.)
+--(Max 16 Columns)
+
+create table customer_details1(custid int,firstname varchar(20),lastname varchar(20))
+select * from customer_details1
+--drop table customer_details1
+
+insert into customer_details1 values(1,'Asdin','Dhalla')
+insert into customer_details1 values(2,'Malcolm','Daruwalla')
+insert into customer_details1 values(3,'Chirag','Panchal')
+
+create index IX_firstname_lastname 
+on customer_details1(firstname,lastname)
+
+sp_help 'customer_details1'
+
+--134. Creating Computed Columns & Index On Computed Columns
+--(Computed Columns are the columns which insert the value at runtime)
+
+create table area(length int,breadth int,area as Length * breadth)
+select * from area
+drop table area 
+
+insert into area values(34,10)
+insert into area values(20,20)
+insert into area values(33,12)
+insert into area values(12,7)
+insert into area values(2,10)
+
+create index IX_area123 on area(area)
+
+sp_help 'area'
+
+--135. Creating FILL Factor and Pad_index
+--(FillFactor Option is used to reserve space on the leaf page of the Index for adding additional data at a later
+-- stage.It can be set between 1-100)
+
+create index IX_firstname on customer_details(firstname)with(fillfactor=50)
+
+create index IX_firstname on customer_details1(firstname)with(pad_index = on,fillfactor=70)
+
+--136. Viewing Index On The Table
+
+exec sp_helpindex 'customer_details'
+exec sp_helpindex 'customer_details1'
+exec sp_helpindex 'area'
+exec sp_helpindex 'clustured_index'
+
+--137. Altering an Index
+alter index IX_custid
+on clustured_index
+rebuild
+
+--138. Creating an XML Index
+
+create table IPL(cid int constraint pkcid primary key clustered,cinfo xml)
+select * from IPL
+drop table IPL
+insert into ipl values(1,'<info><name>abc</name><age>20</age></info>')
+
+create primary xml index pxml_cinfo
+on IPL(cinfo)
+
+sp_help 'IPL'
+
+--139. Alter The XML Index
+
+alter index pxml_cinfo
+on IPL
+reorganize
+
+--140. Disabling an Index
+
+alter index IX_custid
+on clustured_index
+disable
+
+select name,index_id,type_desc,is_unique,is_primary_key,is_disabled
+from sys.indexes
+where name='IX_custid'
+
+--141. Droping Index
+
+drop index IX_state
+on clustured_index
+
+sp_helpindex 'clustured_index'
+
+----------------------------------------------------------------------End of Day 12----------------------------------------------
+
+
+
+
+CREATE TRIGGER tr1 ON empdetails1
+    INSTEAD OF INSERT,
+               UPDATE,
+               DELETE
+AS
+BEGIN
+    RAISERROR( 'tblEvents table is read only.', 16, 1 )
+    ROLLBACK TRANSACTION
+END
+
+select * from empdetails1
+
+
+sp_help 'empdetails'
+drop trigger 
+insert into empdetails1 values(70,'k',20)
